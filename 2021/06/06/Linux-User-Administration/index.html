@@ -1,0 +1,174 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Linux User Administration | Hexo-Butterfly</title><meta name="author" content="Eric"><meta name="copyright" content="Eric"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="用户管理说明：　　&#x2F;home&#x2F;[username](~&#x2F;)文件夹下的用户个人文件仅对于特定用户登陆时起作用 相关文件及其作用　　&#x2F;etc&#x2F;passwd， &#x2F;etc&#x2F;shadow， &#x2F;etc&#x2F;group，&#x2F;etc&#x2F;group  &#x2F;etc&#x2F;passwd用户名:口令(加密后的用户口令):用户标识号:组标识号:注释性描述:主目录:登录Shell  &#x2F;etc&#x2F;shadow对安全性要求较高的Linux系统都">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux User Administration">
+<meta property="og:url" content="http://aeric777.github.io/2021/06/06/Linux-User-Administration/index.html">
+<meta property="og:site_name" content="Hexo-Butterfly">
+<meta property="og:description" content="用户管理说明：　　&#x2F;home&#x2F;[username](~&#x2F;)文件夹下的用户个人文件仅对于特定用户登陆时起作用 相关文件及其作用　　&#x2F;etc&#x2F;passwd， &#x2F;etc&#x2F;shadow， &#x2F;etc&#x2F;group，&#x2F;etc&#x2F;group  &#x2F;etc&#x2F;passwd用户名:口令(加密后的用户口令):用户标识号:组标识号:注释性描述:主目录:登录Shell  &#x2F;etc&#x2F;shadow对安全性要求较高的Linux系统都">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-06-06T04:49:04.000Z">
+<meta property="article:modified_time" content="2021-06-06T04:59:22.999Z">
+<meta property="article:author" content="Eric">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/biao.png"><link rel="canonical" href="http://aeric777.github.io/2021/06/06/Linux-User-Administration/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linux User Administration',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-06-06 12:59:22'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo-Butterfly</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux User Administration</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-06-06T04:49:04.000Z" title="Created 2021-06-06 12:49:04">2021-06-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-06-06T04:59:22.999Z" title="Updated 2021-06-06 12:59:22">2021-06-06</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux User Administration"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><hr>
+<h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><p><strong>说明：</strong><br>　　<code>/home/[username]</code>(<code>~/</code>)文件夹下的用户个人文件仅对于特定用户登陆时起作用</p>
+<h3 id="相关文件及其作用"><a href="#相关文件及其作用" class="headerlink" title="相关文件及其作用"></a>相关文件及其作用</h3><p>　　/etc/passwd， /etc/shadow， /etc/group，/etc/group</p>
+<ul>
+<li><p><code>/etc/passwd</code><br>用户名:口令(加密后的用户口令):用户标识号:组标识号:注释性描述:主目录:登录Shell</p>
+</li>
+<li><p><code>/etc/shadow</code><br>对安全性要求较高的Linux系统都把加密后的口令字分离出来，单独存放在<code>/etc/shadow</code>文件中.</p>
+</li>
+<li><p><code>/etc/group</code><br>组名:口令:组标识号:组内用户列表（包含root、admin、sudo、vboxsf等）</p>
+</li>
+</ul>
+<h3 id="用户-amp-组"><a href="#用户-amp-组" class="headerlink" title="用户 &amp; 组"></a>用户 &amp; 组</h3><ul>
+<li><code>sudo usermod  -a -G [group] [user]</code>用作添加用户到指定组</li>
+<li>在 Linux 操作系统系统中，一个用户是可以<strong>同时存在多个不同的用户组</strong>的，但是享有的用户组权限，只有<strong>同时拥有一个</strong>，一般是 默认组。</li>
+<li>针对不能用户组之间的切换，可以使用 <code>newgrp</code> 命令。</li>
+</ul>
+<h3 id="创建新用户"><a href="#创建新用户" class="headerlink" title="创建新用户"></a>创建新用户</h3><h4 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">useradd + [option] + [username]</span><br><span class="line">option:</span><br><span class="line">-c comment      //指定一段注释性描述。</span><br><span class="line">-d directory    //目录 指定用户主目录，如果此目录不存在，则同时使用-m选项，可以创建主目录。</span><br><span class="line">-g  group       //用户组 指定用户所属的用户组。</span><br><span class="line">-G              //用户组，用户组 指定用户所属的附加组。</span><br><span class="line">-s  shell       //Shell文件 指定用户的登录Shell。</span><br><span class="line">-u  user        //用户号 指定用户的用户号，如果同时有-o选项，则可以重复使用其他用户的标识号。</span><br><span class="line">-m              //create the user<span class="string">&#x27;s home directory</span></span><br><span class="line"><span class="string">//example:</span></span><br><span class="line"><span class="string">useradd -c &quot;Using by ljf as a normal user&quot; -d /home/eric eric</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">passwd + [username]//(root can change any users&#x27;</span>s password <span class="keyword">in</span> this way )</span><br><span class="line">passwd -d [username]//specify this user has no password</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="Login-Shell"><a href="#Login-Shell" class="headerlink" title="Login Shell"></a>Login Shell</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/passwd     //root</span><br></pre></td></tr></table></figure>
+
+<h4 id="sudo命令执行权限"><a href="#sudo命令执行权限" class="headerlink" title="sudo命令执行权限"></a><code>sudo</code>命令执行权限</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sudoers        //root</span><br><span class="line">//在sudo ALL=(ALL:ALL) ALL下面一行添加 [username] ALLALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure>
+
+<h3 id="用户切换"><a href="#用户切换" class="headerlink" title="用户切换"></a>用户切换</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su + [username]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>切换文加所属组(<code>chgrp</code>)和用户(<code>chown</code>),<code>-r</code>代表递归修改</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown user:group [filename]</span><br></pre></td></tr></table></figure></li>
+<li><p>修改文件权限，使用<code>chmod</code>(user:group:others)</p>
+</li>
+</ul>
+<h3 id="用户删除"><a href="#用户删除" class="headerlink" title="用户删除"></a>用户删除</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">userdel + [username]</span><br><span class="line">userdel -r + [username](连同用户文件一起删除)</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Eric</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://aeric777.github.io/2021/06/06/Linux-User-Administration/">http://aeric777.github.io/2021/06/06/Linux-User-Administration/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/06/03/21-holiday/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">21-holiday</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Eric</div><div class="author-info__description">Stay Hungry. Stay Foolish</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/aeric777" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://qm.qq.com/cgi-bin/qm/qr?k=dAiDhkE-4OcR0JFPX9H5pU7ngCTA0lUm&amp;noverify=0" target="_blank" title=""><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">Firsst day of eric's blog!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">用户管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%96%87%E4%BB%B6%E5%8F%8A%E5%85%B6%E4%BD%9C%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text">相关文件及其作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7-amp-%E7%BB%84"><span class="toc-number">1.2.</span> <span class="toc-text">用户 &amp; 组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%94%A8%E6%88%B7"><span class="toc-number">1.3.</span> <span class="toc-text">创建新用户</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-number">1.3.1.</span> <span class="toc-text">基本信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Login-Shell"><span class="toc-number">1.3.2.</span> <span class="toc-text">Login Shell</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sudo%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%9D%83%E9%99%90"><span class="toc-number">1.3.3.</span> <span class="toc-text">sudo命令执行权限</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E5%88%87%E6%8D%A2"><span class="toc-number">1.4.</span> <span class="toc-text">用户切换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E5%88%A0%E9%99%A4"><span class="toc-number">1.5.</span> <span class="toc-text">用户删除</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/06/06/Linux-User-Administration/" title="Linux User Administration"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux User Administration"/></a><div class="content"><a class="title" href="/2021/06/06/Linux-User-Administration/" title="Linux User Administration">Linux User Administration</a><time datetime="2021-06-06T04:49:04.000Z" title="Created 2021-06-06 12:49:04">2021-06-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/06/03/21-holiday/" title="21-holiday"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="21-holiday"/></a><div class="content"><a class="title" href="/2021/06/03/21-holiday/" title="21-holiday">21-holiday</a><time datetime="2021-06-03T07:38:23.000Z" title="Created 2021-06-03 15:38:23">2021-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/06/03/hello-world/" title="Hello World"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2021/06/03/hello-world/" title="Hello World">Hello World</a><time datetime="2021-06-03T04:59:31.219Z" title="Created 2021-06-03 12:59:31">2021-06-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Eric</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
