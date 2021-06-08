@@ -1,0 +1,301 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Git_Pro_Note | Hexo-Butterfly</title><meta name="author" content="Eric"><meta name="copyright" content="Eric"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="ⅠBefore You Getting Start　　Git is a kind of Distributed Version contral system(DVCSs). Besides ,other kind of Version Contral  System is Centralized Version Contral System.　　Git is more like a stream">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git_Pro_Note">
+<meta property="og:url" content="http://aeric777.github.io/2021/06/08/Git-Pro-Note/index.html">
+<meta property="og:site_name" content="Hexo-Butterfly">
+<meta property="og:description" content="ⅠBefore You Getting Start　　Git is a kind of Distributed Version contral system(DVCSs). Besides ,other kind of Version Contral  System is Centralized Version Contral System.　　Git is more like a stream">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-06-08T01:32:55.000Z">
+<meta property="article:modified_time" content="2021-06-08T01:33:34.156Z">
+<meta property="article:author" content="Eric">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/biao.png"><link rel="canonical" href="http://aeric777.github.io/2021/06/08/Git-Pro-Note/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Git_Pro_Note',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-06-08 09:33:34'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo-Butterfly</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Git_Pro_Note</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-06-08T01:32:55.000Z" title="Created 2021-06-08 09:32:55">2021-06-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-06-08T01:33:34.156Z" title="Updated 2021-06-08 09:33:34">2021-06-08</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Git_Pro_Note"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><hr>
+<h2 id="ⅠBefore-You-Getting-Start"><a href="#ⅠBefore-You-Getting-Start" class="headerlink" title="ⅠBefore You Getting Start"></a>ⅠBefore You Getting Start</h2><p>　　Git is a kind of Distributed Version contral system(DVCSs). Besides ,other kind of Version Contral  System is Centralized Version Contral System.<br>　　Git is more like a stream of snapshots which nearly evrey operation is <strong>Local</strong>.<br>　　Git uses SHA-1 hash(<code>40-character</code> string composed of <code>hexadecimal characters</code>) and stores everything is its datebase by the hash value of its contents.<br>　　Three States:<br>　　<strong>modified, staged and commited</strong></p>
+<h2 id="ⅡGetting-Started"><a href="#ⅡGetting-Started" class="headerlink" title="ⅡGetting Started"></a>ⅡGetting Started</h2><h3 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a><strong>git config</strong></h3><ul>
+<li><code>[path]/etc/gitconfig</code> file for all the user in the system</li>
+<li><code>~/gitconfig</code> or <code>~/.config/git/config</code> for a specific user</li>
+<li><code>.git/config</code> file in a Git directory only for  a specific repo<br>　　You can view all of your settings and where they are coming from using:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --list --show-origin</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="Prevent-asking-for-code-every-time"><a href="#Prevent-asking-for-code-every-time" class="headerlink" title="Prevent asking for code every time"></a>Prevent asking for code every time</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper cache</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="Your-Identity"><a href="#Your-Identity" class="headerlink" title="Your Identity"></a>Your Identity</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;[name]&quot;</span><br><span class="line">git config --global user.email &quot;[email]&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Your-Editor"><a href="#Your-Editor" class="headerlink" title="Your Editor"></a>Your Editor</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.editor &quot;[editor](point out the full path on Windows OS)&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Your-default-branch-name"><a href="#Your-default-branch-name" class="headerlink" title="Your default branch name"></a>Your default branch name</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global init.defaultBranch main(or master)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Check-Your-Setting"><a href="#Check-Your-Setting" class="headerlink" title="Check Your Setting"></a>Check Your Setting</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></table></figure>
+
+<h2 id="ⅢGit-Basic"><a href="#ⅢGit-Basic" class="headerlink" title="ⅢGit Basic"></a>Ⅲ<strong>Git Basic</strong></h2><p>　　you can obtian a git repository in two ways:</p>
+<ol>
+<li>take a local directory that is not under version contral yet, and then turn it into a git repository.</li>
+<li>clone an existing repository form elsewhere.</li>
+</ol>
+<h3 id="Initializing-a-Repository"><a href="#Initializing-a-Repository" class="headerlink" title="Initializing a Repository"></a><strong>Initializing a Repository</strong></h3><p><code>cd</code> to your working directory</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;filename&gt;(--all)</span><br><span class="line">git add LiCENSE     //optional</span><br><span class="line">git commit -m &quot;[what you hanve done with this commit]&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Clone-An-Existing-Repo"><a href="#Clone-An-Existing-Repo" class="headerlink" title="Clone An Existing Repo"></a><strong>Clone An Existing Repo</strong></h3><p><code>cd</code> to your working directory</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clone &lt;url&gt; [specify name]//use https or ssh</span><br></pre></td></tr></table></figure>
+
+<h3 id="Recording-Changes-to-the-Repository"><a href="#Recording-Changes-to-the-Repository" class="headerlink" title="Recording Changes to the Repository"></a>Recording Changes to the Repository</h3><p>　　Remember that each file in your working directory can be in one of two states: ``tracked<code>or</code>untracked`</p>
+<h4 id="check-tht-status-of-your-file"><a href="#check-tht-status-of-your-file" class="headerlink" title="check tht status of your file"></a>check tht status of your file</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line"></span><br><span class="line">git status -s   //short</span><br><span class="line">//arent&#x27;s tracked   with  ??</span><br><span class="line">//has been added    with  A</span><br><span class="line">//has been modified with  M</span><br><span class="line">//modefied and staged and modified again with MM</span><br></pre></td></tr></table></figure>
+
+<h4 id="Tracking-New-Files"><a href="#Tracking-New-Files" class="headerlink" title="Tracking New Files"></a>Tracking New Files</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add</span><br></pre></td></tr></table></figure>
+<p>　　When you <code>git commit</code> the file you commit remain the version that just the moment your ran <code>git add &lt;filename&gt;</code>.</p>
+<h4 id="Ignoring-File"><a href="#Ignoring-File" class="headerlink" title="Ignoring File"></a>Ignoring File</h4><p>Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># ignore all .a files</span><br><span class="line">*.a</span><br><span class="line"></span><br><span class="line"># but do track lib.a, even though you&#x27;re ignoring .a files above</span><br><span class="line">!lib.a</span><br><span class="line"></span><br><span class="line"># only ignore the TODO file in the current directory, not subdir/TODO</span><br><span class="line">/TODO</span><br><span class="line"></span><br><span class="line"># ignore all files in any directory named build</span><br><span class="line">build/</span><br><span class="line"></span><br><span class="line"># ignore doc/notes.txt, but not doc/server/arch.txt</span><br><span class="line">doc/*.txt</span><br><span class="line"></span><br><span class="line"># ignore all .pdf files in the doc/ directory and any of its subdirectories</span><br><span class="line">doc/**/*.pdf</span><br></pre></td></tr></table></figure>
+<p>　　See <a target="_blank" rel="noopener" href="https://github.com/github/gitignore">here</a>for more example.</p>
+<h4 id="Viewing-Your-Staged-and-Unstaged-Changes"><a href="#Viewing-Your-Staged-and-Unstaged-Changes" class="headerlink" title="Viewing Your Staged and Unstaged Changes"></a>Viewing Your Staged and Unstaged Changes</h4><p>　　<code>git diff</code> by itself show you only changes that are unstaged yet.<br>　　While you can use <code>git diff --staged </code> to view the changes </p>
+<h3 id="Commit-Your-Change"><a href="#Commit-Your-Change" class="headerlink" title="Commit Your Change"></a>Commit Your Change</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git commit</span><br><span class="line"></span><br><span class="line">git commit -m &quot;[commit message]&quot;</span><br><span class="line"></span><br><span class="line">git commit -v will show your the changes you have made</span><br></pre></td></tr></table></figure>
+<p>　　Remember that the commit rcords a snapshot only those file you set up in your <code>stagin aera</code>, and anything you didn’t stage is still sitting there being in state of <code>modified</code>.</p>
+<h4 id="Skipping-the-Staging-Area"><a href="#Skipping-the-Staging-Area" class="headerlink" title="Skipping the Staging Area"></a>Skipping the Staging Area</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">commit -a &lt;filename&gt;  //you don&#x27;t need add an unstaged file into staging area and then run git commit </span><br></pre></td></tr></table></figure>
+
+<h4 id="Remove-File"><a href="#Remove-File" class="headerlink" title="Remove File"></a>Remove File</h4><p>　　Difference between <code>git rm</code> &amp; <code>rm</code><br>　　use <code>-f</code>  flag to force the removal<br>　　<br>　　To keeping the file on your working tree but remove it from your staging area.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm --cached &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Rename-File"><a href="#Rename-File" class="headerlink" title="Rename File"></a>Rename File</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git mv &lt;old file&gt; &lt;new file&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="View-The-Commit-History"><a href="#View-The-Commit-History" class="headerlink" title="View The Commit History"></a>View The Commit History</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
+<p>　　usefull flag:<br><code>-[number]</code> show you limit the number of log entires displaied.<br><code>-p</code> shows your the details of each patch<br><code>--all</code><br><code>--graph</code><br><code>--oneline</code><br><code>--decorate</code><br><code>--name-only</code><br><code>--pretty</code></p>
+<h3 id="Undoing-Things"><a href="#Undoing-Things" class="headerlink" title="Undoing Things"></a>Undoing Things</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend  //reset the last commit</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git restore --staged &lt;filename&gt; //unstage staged file</span><br><span class="line">git restore &lt;filename&gt; //unstage staged file    //discard the change you have made</span><br></pre></td></tr></table></figure>
+
+<h3 id="Working-With-Remote"><a href="#Working-With-Remote" class="headerlink" title="Working With Remote"></a>Working With Remote</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git remote      //show the current remote</span><br><span class="line">git remote -v     //more  details</span><br><span class="line">git remote show [remote-name]       //show more information about one particular remote</span><br></pre></td></tr></table></figure>
+<p>　　Add remote</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. git clone &lt;url&gt;  //automaticlly add a remote origin </span><br><span class="line">git clone -o [remote name] &lt;url&gt;</span><br><span class="line">2. git remote add [name] &lt;url&gt;  //add remote repository</span><br></pre></td></tr></table></figure>
+<p>　　Fetch remote information </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch [remote name]</span><br></pre></td></tr></table></figure>
+<p>　　pull and push with remote</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git pull [remote] [branch]</span><br><span class="line">git push [remote] [branch]</span><br></pre></td></tr></table></figure>
+<p>　　Rename and removing remote</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote rename [oldname] [newname]</span><br><span class="line">git remote remove [remote name]</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Tags"><a href="#Tags" class="headerlink" title="Tags"></a>Tags</h3><p>　　Listing tags</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag</span><br></pre></td></tr></table></figure>
+<p>　　Creating Tags : <code>lightweight</code> or <code>annotated</code> tag<br>　　Anotated Tags:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -a [tag name] -m &quot;tag message&quot;</span><br></pre></td></tr></table></figure>
+<p>　　Lightweight Tags:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag [tagname]-Lw</span><br></pre></td></tr></table></figure>
+
+<h4 id="Add-Tags-Later"><a href="#Add-Tags-Later" class="headerlink" title="Add Tags Later"></a>Add Tags Later</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -a [tagname]  [hash value] </span><br></pre></td></tr></table></figure>
+
+<h4 id="Push-Tags-To-the-Remote"><a href="#Push-Tags-To-the-Remote" class="headerlink" title="Push Tags To the　Remote"></a>Push Tags To the　Remote</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git push [remote name] [tagname]    //push single tag</span><br><span class="line">git push [remote name] --tags       //push all tags</span><br></pre></td></tr></table></figure>
+
+<h4 id="Deleting-Tags"><a href="#Deleting-Tags" class="headerlink" title="Deleting Tags"></a>Deleting Tags</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git tag -d [tag name]   //delete local tag</span><br><span class="line">git push [remote name] --delete [tagname]   //delete tag on remote server</span><br></pre></td></tr></table></figure>
+
+<h3 id="Git-Alias"><a href="#Git-Alias" class="headerlink" title="Git Alias"></a>Git Alias</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global alias.[short name] &#x27;full command&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ⅣGit-Branching"><a href="#ⅣGit-Branching" class="headerlink" title="ⅣGit Branching"></a>Ⅳ<strong>Git Branching</strong></h2><h3 id="Branch-Manegement"><a href="#Branch-Manegement" class="headerlink" title="Branch Manegement"></a>Branch Manegement</h3><h4 id="Creating-new-branch"><a href="#Creating-new-branch" class="headerlink" title="Creating new branch"></a>Creating new branch</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch [mame]</span><br></pre></td></tr></table></figure>
+
+<h4 id="Switching-Branch"><a href="#Switching-Branch" class="headerlink" title="Switching Branch"></a>Switching Branch</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout [branch]       //Move pointer `HEAD` to a specifeid branch</span><br><span class="line">git checkout -b [branch]    //creat new branch</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//use switch </span><br><span class="line">git switch [branch]     //same as &quot;git checkout [branch]&quot;</span><br><span class="line">git switch -c [branch]  //same as &quot;git checkout -b [branch]&quot;</span><br><span class="line">git switch -            //new functionality</span><br></pre></td></tr></table></figure>
+
+<h4 id="Branch-Merging"><a href="#Branch-Merging" class="headerlink" title="Branch Merging"></a>Branch Merging</h4><p>　　clea your waoking tree before merge!!!</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git merge       //git use three merge as below:</span><br><span class="line">1.fast-forward          //don&#x27;t creat new snapshot</span><br><span class="line">2.&#x27;recursive&#x27; strategy  //creat new commit(snapshot)</span><br><span class="line">3.conflict resolve      //only when Automatic merge failed</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// show Branch</span><br><span class="line">git branch --merged</span><br><span class="line">git branch --no-merged</span><br><span class="line"></span><br><span class="line">//delete Branch</span><br><span class="line">git branch -d [branch name]</span><br><span class="line">git branch -D [branch name]     //force</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="Changing-Branch-Name"><a href="#Changing-Branch-Name" class="headerlink" title="Changing Branch Name"></a><strong>Changing Branch Name</strong></h4><p>　　Make sure the working tree is clean begfore change the name of your branch (<em>local mechine &amp; remote</em>)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git branch --move [old name] [new name]     //change name locally</span><br><span class="line">git push --set-upstream [remote name] [branch name] //change to remote</span><br><span class="line">//Note that you can check the current branch with &quot;git branch --all&quot; command </span><br><span class="line">git push [remote name] --delete [branch name which to be deleted]   //delte useless branch</span><br></pre></td></tr></table></figure>
+<p>　　How to make sure that your working tree is clean when you are in cooperation with colleague</p>
+<blockquote>
+<ul>
+<li>Any projects that depend on this one will need to update their code and/or configuration.</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Update any test-runner configuration files.</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Adjust build and release scripts.</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Redirect settings on your repo host for things like the repo’s default branch, merge rules, and other things that match branch names.</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Update references to the old branch in documentation.</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Close or merge any pull requests that target the old branch.</li>
+</ul>
+</blockquote>
+<h3 id="Branching-Workflows"><a href="#Branching-Workflows" class="headerlink" title="Branching Workflows"></a>Branching Workflows</h3><h4 id="Long-Running-Branch"><a href="#Long-Running-Branch" class="headerlink" title="Long Running Branch"></a>Long Running Branch</h4><p>　　Keep one stable version on branch master, developping on other branch
+　　</p>
+<h4 id="Topic-Branches"><a href="#Topic-Branches" class="headerlink" title="Topic Branches"></a>Topic Branches</h4><h3 id="Remote-Branches"><a href="#Remote-Branches" class="headerlink" title="Remote Branches"></a>Remote Branches</h3><h4 id="Tracking-Branches"><a href="#Tracking-Branches" class="headerlink" title="Tracking Branches"></a>Tracking Branches</h4><p>　　Tracking branches are local branches that have direct relationship to a remote branch.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b [new branch] [remote]/[tracking branch name]</span><br></pre></td></tr></table></figure>
+<p>　　Change the upstraeam branch you are tracking.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.git push -u [remote]/[branch]</span><br><span class="line">2.git push --set-upstream-to [remote]/[branch]</span><br></pre></td></tr></table></figure>
+<p>　　<code>git branch -vv</code> list out all the branch and which branch they are tracking.<br>　　What’s more we usually use</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all ; git branch -vv</span><br></pre></td></tr></table></figure>
+
+<h4 id="Pulling"><a href="#Pulling" class="headerlink" title="Pulling"></a>Pulling</h4><p>　　<code>Git fetch</code> fetch all the commit on the server that you don’t have, but won’t modify you working area. You need to<code>git merge</code> command to bring this change to your working directory.<br>　　While there is another command to achieve the same thing</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+<p>　　but sometime this can be confusing.</p>
+<h3 id="Rebasing"><a href="#Rebasing" class="headerlink" title="Rebasing"></a>Rebasing</h3><h4 id="Basic-Rebasing"><a href="#Basic-Rebasing" class="headerlink" title="Basic Rebasing"></a>Basic Rebasing</h4><p>　　Take all the changes that ware committed on one branch and replay them on a different branch.<br>　　<strong>Note that: Don’t rebase commit that exit outside your repository and that peopkle may have based work on.</strong><br>　　<strong>Fllowing this tips:Rebase local changes before pushing to clean up your work, but never rebase anything that you’ve pushed somewhere else.</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git rebase [base branch] [topic branch] //check the topic branch for you and replay it onto the base branch.</span><br><span class="line">git checkout [base branch]</span><br><span class="line">git merge [topic branch]</span><br><span class="line">git branch -d [topic branch]    //make your git history clean enough</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git checkout [side branch]</span><br><span class="line">git rebase [main branch]</span><br><span class="line"></span><br><span class="line">git checkout [main branch]</span><br><span class="line">git merge [side branch]</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Eric</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://aeric777.github.io/2021/06/08/Git-Pro-Note/">http://aeric777.github.io/2021/06/08/Git-Pro-Note/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/06/06/Linux-User-Administration/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Linux User Administration</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Eric</div><div class="author-info__description">Stay Hungry. Stay Foolish</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">4</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/aeric777" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://qm.qq.com/cgi-bin/qm/qr?k=dAiDhkE-4OcR0JFPX9H5pU7ngCTA0lUm&amp;noverify=0" target="_blank" title=""><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">Firsst day of eric's blog!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%85%A0Before-You-Getting-Start"><span class="toc-number">1.</span> <span class="toc-text">ⅠBefore You Getting Start</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%85%A1Getting-Started"><span class="toc-number">2.</span> <span class="toc-text">ⅡGetting Started</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-config"><span class="toc-number">2.1.</span> <span class="toc-text">git config</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Prevent-asking-for-code-every-time"><span class="toc-number">2.1.1.</span> <span class="toc-text">Prevent asking for code every time</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Your-Identity"><span class="toc-number">2.1.2.</span> <span class="toc-text">Your Identity</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Your-Editor"><span class="toc-number">2.1.3.</span> <span class="toc-text">Your Editor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Your-default-branch-name"><span class="toc-number">2.1.4.</span> <span class="toc-text">Your default branch name</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Check-Your-Setting"><span class="toc-number">2.2.</span> <span class="toc-text">Check Your Setting</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%85%A2Git-Basic"><span class="toc-number">3.</span> <span class="toc-text">ⅢGit Basic</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Initializing-a-Repository"><span class="toc-number">3.1.</span> <span class="toc-text">Initializing a Repository</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Clone-An-Existing-Repo"><span class="toc-number">3.2.</span> <span class="toc-text">Clone An Existing Repo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Recording-Changes-to-the-Repository"><span class="toc-number">3.3.</span> <span class="toc-text">Recording Changes to the Repository</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#check-tht-status-of-your-file"><span class="toc-number">3.3.1.</span> <span class="toc-text">check tht status of your file</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tracking-New-Files"><span class="toc-number">3.3.2.</span> <span class="toc-text">Tracking New Files</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ignoring-File"><span class="toc-number">3.3.3.</span> <span class="toc-text">Ignoring File</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Viewing-Your-Staged-and-Unstaged-Changes"><span class="toc-number">3.3.4.</span> <span class="toc-text">Viewing Your Staged and Unstaged Changes</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Commit-Your-Change"><span class="toc-number">3.4.</span> <span class="toc-text">Commit Your Change</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Skipping-the-Staging-Area"><span class="toc-number">3.4.1.</span> <span class="toc-text">Skipping the Staging Area</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Remove-File"><span class="toc-number">3.4.2.</span> <span class="toc-text">Remove File</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Rename-File"><span class="toc-number">3.4.3.</span> <span class="toc-text">Rename File</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#View-The-Commit-History"><span class="toc-number">3.5.</span> <span class="toc-text">View The Commit History</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Undoing-Things"><span class="toc-number">3.6.</span> <span class="toc-text">Undoing Things</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Working-With-Remote"><span class="toc-number">3.7.</span> <span class="toc-text">Working With Remote</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tags"><span class="toc-number">3.8.</span> <span class="toc-text">Tags</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Add-Tags-Later"><span class="toc-number">3.8.1.</span> <span class="toc-text">Add Tags Later</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Push-Tags-To-the-Remote"><span class="toc-number">3.8.2.</span> <span class="toc-text">Push Tags To the　Remote</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Deleting-Tags"><span class="toc-number">3.8.3.</span> <span class="toc-text">Deleting Tags</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-Alias"><span class="toc-number">3.9.</span> <span class="toc-text">Git Alias</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%85%A3Git-Branching"><span class="toc-number">4.</span> <span class="toc-text">ⅣGit Branching</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Branch-Manegement"><span class="toc-number">4.1.</span> <span class="toc-text">Branch Manegement</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Creating-new-branch"><span class="toc-number">4.1.1.</span> <span class="toc-text">Creating new branch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Switching-Branch"><span class="toc-number">4.1.2.</span> <span class="toc-text">Switching Branch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Branch-Merging"><span class="toc-number">4.1.3.</span> <span class="toc-text">Branch Merging</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Changing-Branch-Name"><span class="toc-number">4.1.4.</span> <span class="toc-text">Changing Branch Name</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Branching-Workflows"><span class="toc-number">4.2.</span> <span class="toc-text">Branching Workflows</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Long-Running-Branch"><span class="toc-number">4.2.1.</span> <span class="toc-text">Long Running Branch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Topic-Branches"><span class="toc-number">4.2.2.</span> <span class="toc-text">Topic Branches</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Remote-Branches"><span class="toc-number">4.3.</span> <span class="toc-text">Remote Branches</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Tracking-Branches"><span class="toc-number">4.3.1.</span> <span class="toc-text">Tracking Branches</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Pulling"><span class="toc-number">4.3.2.</span> <span class="toc-text">Pulling</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rebasing"><span class="toc-number">4.4.</span> <span class="toc-text">Rebasing</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Basic-Rebasing"><span class="toc-number">4.4.1.</span> <span class="toc-text">Basic Rebasing</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/06/08/Git-Pro-Note/" title="Git_Pro_Note"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git_Pro_Note"/></a><div class="content"><a class="title" href="/2021/06/08/Git-Pro-Note/" title="Git_Pro_Note">Git_Pro_Note</a><time datetime="2021-06-08T01:32:55.000Z" title="Created 2021-06-08 09:32:55">2021-06-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/06/06/Linux-User-Administration/" title="Linux User Administration"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux User Administration"/></a><div class="content"><a class="title" href="/2021/06/06/Linux-User-Administration/" title="Linux User Administration">Linux User Administration</a><time datetime="2021-06-06T04:49:04.000Z" title="Created 2021-06-06 12:49:04">2021-06-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/06/03/21-holiday/" title="21-holiday"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="21-holiday"/></a><div class="content"><a class="title" href="/2021/06/03/21-holiday/" title="21-holiday">21-holiday</a><time datetime="2021-06-03T07:38:23.000Z" title="Created 2021-06-03 15:38:23">2021-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/06/03/hello-world/" title="Hello World"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2021/06/03/hello-world/" title="Hello World">Hello World</a><time datetime="2021-06-03T04:59:31.219Z" title="Created 2021-06-03 12:59:31">2021-06-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Eric</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
